@@ -43,7 +43,7 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.extendedLayoutIncludesOpaqueBars = NO;
-    self.tableView.rowHeight = 48;
+    self.tableView.rowHeight = 80;
     [self.tableView registerClass:UITableViewCell.class forCellReuseIdentifier:@"cell"];
 }
 
@@ -57,7 +57,8 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
     NSString *fontName = self.fonts[indexPath.row];
-    cell.textLabel.text = [NSString stringWithFormat:@"%@", fontName];
+    cell.textLabel.numberOfLines = 0;
+    cell.textLabel.text = [NSString stringWithFormat:@"系统字体测试，当前字体为%@", fontName];
     cell.textLabel.font = [UIFont fontWithName:fontName size:18];
     
     return cell;
